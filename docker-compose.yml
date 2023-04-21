@@ -44,30 +44,30 @@ services:
       - "15672:15672"
     networks:
       - spring
-  eureka-server:
-    image: jaskarn/eureka-server:latest
-    container_name: eureka-server
-    ports:
-      - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-  apigw:
-    image: jaskarn/apigw:latest
-    container_name: apigw
-    ports:
-      - "8083:8083"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-      - eureka-server
-      - customer
+#  eureka-server:
+#    image: jaskarn/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - "8761:8761"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#  apigw:
+#    image: jaskarn/apigw:latest
+#    container_name: apigw
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
+#      - customer
   customer:
     image: jaskarn/customer:latest
     container_name: customer
